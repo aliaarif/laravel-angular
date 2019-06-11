@@ -12,4 +12,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  onFormSubmit(e){
+    if(e.value.password != e.value.rpassword){
+      console.log('Password Doesn\'t Match!');
+    }
+  }
+
 }

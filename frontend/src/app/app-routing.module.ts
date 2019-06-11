@@ -7,10 +7,6 @@ import { RegisterComponent } from './register/register.component';
 
 
 
-localStorage.setItem('user', 'Admin');
-
-if(localStorage.has('user')){
- 
 
 const routes: Routes = [
   {
@@ -29,16 +25,7 @@ const routes: Routes = [
 
 ];
 
-}else{
-const routes: Routes = [
-  {
-    path:'',
-    component: Home1Component
-  },
 
-];
-
-}
 
 
 

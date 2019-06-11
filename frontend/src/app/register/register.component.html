@@ -1,17 +1,20 @@
 <div class="col-md-12">
   <h4 class="mb-3">Register Panel</h4>
-  <form class="needs-validation" novalidate="">
+  <p class="alert alert-danger" *ngIf="password.value !== rpassword.value">
+    Password Doesn't Match!
+  </p>
+  <form class="needs-validation" (ngSubmit)="onFormSubmit(regForm)" #regForm="ngForm">
     <div class="row">
       <div class="col-md-6 mb-3">
-        <label for="firstName">Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Provide your full name" autocomplete="false" required>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" #name ngModel  placeholder="Provide your full name" autocomplete="false" required>
         <div class="invalid-feedback">
           Valid Name is required.
         </div>
       </div>
       <div class="col-md-6 mb-3">
         <label for="mobile">Mobile</label>
-        <input type="text" class="form-control" id="mobile" placeholder="Provide your valid mobile number"  autocomplete="false" required>
+        <input type="text" class="form-control" id="mobile" name="mobile" #mobile ngModel placeholder="Provide your valid mobile number"  autocomplete="false" required>
         <div class="invalid-feedback">
           Valid mobile number required.
         </div>
@@ -20,7 +23,7 @@
 
     <div class="mb-3">
       <label for="email">Email </label>
-      <input type="email" class="form-control" id="email" placeholder="you@example.com"  autocomplete="false" required >
+      <input type="email" class="form-control" id="email" name="email" #email ngModel placeholder="you@example.com"  autocomplete="false" required >
       <div class="invalid-feedback">
         Please enter a valid email address.
       </div>
@@ -28,13 +31,21 @@
 
     <div class="mb-3">
       <label for="email">Password </label>
-      <input type="password" class="form-control" id="password" placeholder="Provide a 8 character long password"  autocomplete="false" required>
+      <input type="password" class="form-control" id="password" name="password" #password ngModel placeholder="Provide a 8 character long password"  autocomplete="false" required>
       <div class="invalid-feedback">
         Please enter a strong password.
       </div>
     </div>
 
+    <div class="mb-3">
+      <label for="rpassword">Re-Password </label>
+      <input type="password" class="form-control" id="rpassword" name="rpassword" #rpassword ngModel placeholder="Confirm Your Password"  autocomplete="false" required>
+      <div class="invalid-feedback">
+        Please retype your password.
+      </div>
+    </div>
+
     <hr class="mb-4">
-    <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+    <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="regForm.invalid || password.value !== rpassword.value">Register</button>
   </form>
 </div>
