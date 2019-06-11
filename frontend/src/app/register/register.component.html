@@ -3,6 +3,11 @@
   <p class="alert alert-danger" *ngIf="password.value !== rpassword.value">
     Password Doesn't Match!
   </p>
+  <p class="alert alert-success" *ngIf="registered">
+      User Registered Successfully!
+      Go to <a routerLink="/login">Login Panel </a>
+      {{ regForm.reset() }}
+    </p>
   <form class="needs-validation" (ngSubmit)="onFormSubmit(regForm)" #regForm="ngForm">
     <div class="row">
       <div class="col-md-6 mb-3">

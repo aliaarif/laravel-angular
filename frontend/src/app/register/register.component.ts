@@ -9,7 +9,7 @@ import { ApiService } from '../api.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private api: ApiService) { }
-
+  registered = false;
   ngOnInit() {
   }
 
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     };
 
     //console.log(user);
-    this.api.registerUser(user);
+    this.registered = this.api.registerUser(user) ? true : false;
     
   }
 

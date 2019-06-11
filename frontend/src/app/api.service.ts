@@ -9,9 +9,14 @@ export class ApiService {
   config = new Configuration(); 
   constructor(private http: HttpClient) { }
   registerUser(user: any){
- 
-    this.http
+   return this.http
     .post(this.config.apiUrl+'/register', user)
-    .subscribe(res => console.log(res));
+    .subscribe(res => res); 
   }
+
+  loginUser(user: any){
+    return this.http
+     .post(this.config.apiUrl+'/login', user)
+     .subscribe(res => res); 
+   }
 }
