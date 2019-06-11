@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
       password: e.value.password
     };
 this.loggedIn = this.api.loginUser(user) ? true : false;
+
+console.log(this.api.loginUser(user));
     
   }
 

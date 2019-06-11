@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { Home1Component } from './home1/home1.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GuestGuard } from './Guards/guest.guard';
+import { AuthGuard } from './Guards/auth.guard';
 
 
 
@@ -16,11 +19,19 @@ const routes: Routes = [
 
   {
     path:'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [GuestGuard]
   },
   {
     path:'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [GuestGuard]
+  },
+
+  {
+    path:'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   },
 
 ];

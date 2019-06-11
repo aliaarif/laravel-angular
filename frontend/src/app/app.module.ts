@@ -11,6 +11,7 @@ import { Home1Component } from './home1/home1.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ApiService } from './api.service';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    Home1Component
+    Home1Component,
+    DashboardComponent
   
   ],
   imports: [
