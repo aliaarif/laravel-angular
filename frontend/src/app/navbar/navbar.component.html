@@ -17,16 +17,14 @@
     </ul>
 
     <ul class="navbar-nav mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="/dashboard">Welcome {{ name }}</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
             <a class="nav-link" routerLink="/logout">Logout</a>
           </li>
     </ul>
 
-    <span class="navbar-text">
-      Navbar text with an inline element
-    </span>
+ 
   </div>
 </nav>
